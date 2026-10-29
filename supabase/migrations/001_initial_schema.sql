@@ -1,184 +1,39 @@
+import Link from 'next/link';
+import { ArrowRight, CircleDollarSign, MessageCircleMore } from 'lucide-react';
 import { Product } from '@/types';
+import { formatPrice } from '@/lib/utils';
 
-export const products: Product[] = [
-  {
-    id: 'prod-001',
-    slug: 'ashwood-3-seater-sofa',
-    name: 'Ashwood 3-Seater Sofa',
-    sku: 'GW-SOF-001',
-    category: 'Sofas and couches',
-    description: 'A warm-toned three-seater sofa with a sturdy frame and clean profile. Ideal for lounge spaces and ready for collection or local delivery.',
-    priceCents: 499900,
-    comparisonPriceCents: 729900,
-    condition: 'Good',
-    brand: 'Ashwood',
-    color: 'Walnut brown',
-    material: 'Wood and fabric',
-    dimensions: '200 cm x 90 cm x 82 cm',
-    images: [
-      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
-    ],
-    stock: 1,
-    status: 'published',
-    featured: true,
-    clearance: false,
-    newArrival: true,
-    deliveryAvailable: true,
-    collectionAvailable: true,
-    damageDisclosure: 'Minor wear on the right arm and a small light scuff on the base.',
-    createdAt: '2025-02-12T09:00:00Z',
-  },
-  {
-    id: 'prod-002',
-    slug: 'classic-wooden-bed-frame',
-    name: 'Classic Wooden Bed Frame',
-    sku: 'GW-BED-002',
-    category: 'Beds and bed frames',
-    description: 'Solid wood bed frame with a timeless profile and low maintenance finish. Good for guest rooms or main bedrooms.',
-    priceCents: 269900,
-    comparisonPriceCents: 385000,
-    condition: 'Excellent',
-    brand: 'Oakline',
-    color: 'Natural oak',
-    material: 'Solid wood',
-    dimensions: '190 cm x 150 cm x 40 cm',
-    images: [
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
-    ],
-    stock: 2,
-    status: 'published',
-    featured: true,
-    clearance: false,
-    newArrival: false,
-    deliveryAvailable: true,
-    collectionAvailable: true,
-    damageDisclosure: 'No notable damage; minor surface scuffs visible under close inspection.',
-    createdAt: '2025-03-01T11:30:00Z',
-  },
-  {
-    id: 'prod-003',
-    slug: 'double-mattress-orthopedic',
-    name: 'Double Mattress',
-    sku: 'GW-MAT-003',
-    category: 'Mattresses',
-    description: 'Comfortable double mattress ready for a new home. Clean condition and suitable for everyday use.',
-    priceCents: 189900,
-    comparisonPriceCents: 299900,
-    condition: 'Good',
-    brand: 'Comfort Rest',
-    color: 'White',
-    material: 'Foam and fabric',
-    dimensions: '190 cm x 135 cm x 24 cm',
-    images: [
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80',
-    ],
-    stock: 3,
-    status: 'published',
-    featured: false,
-    clearance: false,
-    newArrival: true,
-    deliveryAvailable: true,
-    collectionAvailable: true,
-    damageDisclosure: 'Very light surface marks; no visible tears or broken support areas.',
-    createdAt: '2025-02-18T14:10:00Z',
-  },
-  {
-    id: 'prod-004',
-    slug: 'sliding-door-wardrobe',
-    name: 'Sliding Door Wardrobe',
-    sku: 'GW-WAR-004',
-    category: 'Wardrobes',
-    description: 'Spacious two-door wardrobe with sliding panels and internal hanging space. A practical option for bedrooms or staff quarters.',
-    priceCents: 329900,
-    comparisonPriceCents: 489900,
-    condition: 'Fair',
-    brand: 'Homeform',
-    color: 'Cream laminate',
-    material: 'Laminate and metal',
-    dimensions: '180 cm x 60 cm x 200 cm',
-    images: [
-      'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
-    ],
-    stock: 1,
-    status: 'published',
-    featured: false,
-    clearance: true,
-    newArrival: false,
-    deliveryAvailable: true,
-    collectionAvailable: true,
-    damageDisclosure: 'Minor cabinet wear, a small dent on the left panel, and a soft-close mechanism that needs light adjustment.',
-    createdAt: '2025-03-06T10:00:00Z',
-  },
-  {
-    id: 'prod-005',
-    slug: 'oak-dresser-nightstand',
-    name: 'Oak Dresser and Nightstand Set',
-    sku: 'GW-DRE-005',
-    category: 'Dressers and bedside tables',
-    description: 'Pair of oak furniture pieces with nine drawers in total. Useful for bedroom storage and a clean Scandinavian-inspired look.',
-    priceCents: 259900,
-    comparisonPriceCents: 419900,
-    condition: 'Good',
-    brand: 'Hearthline',
-    color: 'Natural oak',
-    material: 'Wood veneer',
-    dimensions: '120 cm x 45 cm x 80 cm',
-    images: [
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80',
-    ],
-    stock: 2,
-    status: 'published',
-    featured: false,
-    clearance: false,
-    newArrival: true,
-    deliveryAvailable: true,
-    collectionAvailable: true,
-    damageDisclosure: 'Light wear on the drawer edges and some slight fading at the back edges.',
-    createdAt: '2025-01-30T08:55:00Z',
-  },
-  {
-    id: 'prod-006',
-    slug: 'wooden-dining-table-set',
-    name: 'Wooden Dining Table and Six Chairs',
-    sku: 'GW-DIN-006',
-    category: 'Dining tables and chairs',
-    description: 'This family-sized dining set includes the table and six chairs in a natural finish, suitable for small homes and flats.',
-    priceCents: 559900,
-    comparisonPriceCents: 799900,
-    condition: 'Fair',
-    brand: 'Nordic Home',
-    color: 'Natural wood',
-    material: 'Wood and metal',
-    dimensions: '180 cm x 90 cm x 76 cm',
-    images: [
-      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
-    ],
-    stock: 1,
-    status: 'published',
-    featured: true,
-    clearance: false,
-    newArrival: false,
-    deliveryAvailable: true,
-    collectionAvailable: true,
-    damageDisclosure: 'Three chair seats show mild wear, and one chair has a minor crack near the frame join.',
-    createdAt: '2025-03-10T18:20:00Z',
-  },
-];
-
-export const featuredProducts = products.filter((product) => product.featured);
-export const latestProducts = [...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-export const clearanceProducts = products.filter((product) => product.clearance);
-
-export function getProductBySlug(slug: string) {
-  return products.find((product) => product.slug === slug);
-}
-
-export function getProductsByCategory(category: string) {
-  return products.filter((product) => product.category === category);
+export function ProductCard({ product, compact = false }: { product: Product; compact?: boolean }) {
+  return (
+    <article className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+      <div className="relative">
+        <img src={product.images[0]} alt={product.name} className={compact ? 'h-56 w-full object-cover' : 'h-72 w-full object-cover'} />
+        {product.clearance && <span className="absolute left-4 top-4 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">Clearance</span>}
+      </div>
+      <div className="space-y-4 p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{product.category}</p>
+            <h3 className="mt-2 text-xl font-semibold text-charcoal">{product.name}</h3>
+          </div>
+          <span className="rounded-full bg-wood-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-wood-700">{product.condition}</span>
+        </div>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="text-2xl font-semibold text-charcoal">{formatPrice(product.priceCents)}</div>
+            {product.comparisonPriceCents && <div className="text-sm text-slate-400 line-through">{formatPrice(product.comparisonPriceCents)}</div>}
+          </div>
+          <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700">{product.stock > 0 ? `${product.stock} in stock` : 'Sold'}</span>
+        </div>
+        <div className="flex gap-3">
+          <Link href={`/product/${product.slug}`} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-charcoal px-4 py-2.5 text-sm font-medium text-white">
+            View details <ArrowRight className="h-4 w-4" />
+          </Link>
+          <a href={`https://wa.me/27846138734?text=${encodeURIComponent(`Hello, I am interested in ${product.name}, priced at ${formatPrice(product.priceCents)}. Is it still available?`)}`} className="inline-flex items-center justify-center rounded-full bg-green-600 px-4 py-2.5 text-sm font-medium text-white">
+            <MessageCircleMore className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </article>
+  );
 }
